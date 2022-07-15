@@ -4,21 +4,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>7a9efdb0-7ae1-4e8d-bc13-125e06fbacb0</UserSecretsId>
+    <UserSecretsId>79986d92-9179-49a1-9b0e-c32ec959b40f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <Platforms>AnyCPU;x86</Platforms>
+    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="LoginMicroServiceModel.db" />
-    <None Remove="README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="README.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.7" />
@@ -27,16 +16,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Adapters\SQLiteAdapter\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="LoginMicroServiceModel.db">
+    <None Update="StudentsManagerModel.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Adapters\StudentManagerAPI\" />
+    <Folder Include="Ports\" />
   </ItemGroup>
 
 </Project>
